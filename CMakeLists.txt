@@ -8,5 +8,6 @@ project(cann)
 add_executable(
     cann
     src/main.cc
-    src/matrix.cc
+    src/Matrix.cc
+    src/Neuron.cc
 )
