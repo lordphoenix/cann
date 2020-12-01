@@ -142,32 +142,32 @@ cann/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/build
 .PHONY : cann/fast
 
-src/Matrix.o: src/Matrix.cc.o
+src/Layer.o: src/Layer.cc.o
 
-.PHONY : src/Matrix.o
+.PHONY : src/Layer.o
 
 # target to build an object file
-src/Matrix.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Matrix.cc.o
-.PHONY : src/Matrix.cc.o
+src/Layer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.o
+.PHONY : src/Layer.cc.o
 
-src/Matrix.i: src/Matrix.cc.i
+src/Layer.i: src/Layer.cc.i
 
-.PHONY : src/Matrix.i
+.PHONY : src/Layer.i
 
 # target to preprocess a source file
-src/Matrix.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Matrix.cc.i
-.PHONY : src/Matrix.cc.i
+src/Layer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.i
+.PHONY : src/Layer.cc.i
 
-src/Matrix.s: src/Matrix.cc.s
+src/Layer.s: src/Layer.cc.s
 
-.PHONY : src/Matrix.s
+.PHONY : src/Layer.s
 
 # target to generate assembly for a file
-src/Matrix.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Matrix.cc.s
-.PHONY : src/Matrix.cc.s
+src/Layer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.s
+.PHONY : src/Layer.cc.s
 
 src/Neuron.o: src/Neuron.cc.o
 
@@ -223,6 +223,33 @@ src/main.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/main.cc.s
 .PHONY : src/main.cc.s
 
+src/matrix.o: src/matrix.cc.o
+
+.PHONY : src/matrix.o
+
+# target to build an object file
+src/matrix.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/matrix.cc.o
+.PHONY : src/matrix.cc.o
+
+src/matrix.i: src/matrix.cc.i
+
+.PHONY : src/matrix.i
+
+# target to preprocess a source file
+src/matrix.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/matrix.cc.i
+.PHONY : src/matrix.cc.i
+
+src/matrix.s: src/matrix.cc.s
+
+.PHONY : src/matrix.s
+
+# target to generate assembly for a file
+src/matrix.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/matrix.cc.s
+.PHONY : src/matrix.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,15 +259,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cann"
-	@echo "... src/Matrix.o"
-	@echo "... src/Matrix.i"
-	@echo "... src/Matrix.s"
+	@echo "... src/Layer.o"
+	@echo "... src/Layer.i"
+	@echo "... src/Layer.s"
 	@echo "... src/Neuron.o"
 	@echo "... src/Neuron.i"
 	@echo "... src/Neuron.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/matrix.o"
+	@echo "... src/matrix.i"
+	@echo "... src/matrix.s"
 .PHONY : help
 
 
