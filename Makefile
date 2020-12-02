@@ -169,6 +169,33 @@ src/Layer.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.s
 .PHONY : src/Layer.cc.s
 
+src/NeuralNetwork.o: src/NeuralNetwork.cc.o
+
+.PHONY : src/NeuralNetwork.o
+
+# target to build an object file
+src/NeuralNetwork.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/NeuralNetwork.cc.o
+.PHONY : src/NeuralNetwork.cc.o
+
+src/NeuralNetwork.i: src/NeuralNetwork.cc.i
+
+.PHONY : src/NeuralNetwork.i
+
+# target to preprocess a source file
+src/NeuralNetwork.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/NeuralNetwork.cc.i
+.PHONY : src/NeuralNetwork.cc.i
+
+src/NeuralNetwork.s: src/NeuralNetwork.cc.s
+
+.PHONY : src/NeuralNetwork.s
+
+# target to generate assembly for a file
+src/NeuralNetwork.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/NeuralNetwork.cc.s
+.PHONY : src/NeuralNetwork.cc.s
+
 src/Neuron.o: src/Neuron.cc.o
 
 .PHONY : src/Neuron.o
@@ -262,6 +289,9 @@ help:
 	@echo "... src/Layer.o"
 	@echo "... src/Layer.i"
 	@echo "... src/Layer.s"
+	@echo "... src/NeuralNetwork.o"
+	@echo "... src/NeuralNetwork.i"
+	@echo "... src/NeuralNetwork.s"
 	@echo "... src/Neuron.o"
 	@echo "... src/Neuron.i"
 	@echo "... src/Neuron.s"
