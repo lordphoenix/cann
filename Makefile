@@ -142,6 +142,87 @@ cann/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/build
 .PHONY : cann/fast
 
+src/Layer.o: src/Layer.cc.o
+
+.PHONY : src/Layer.o
+
+# target to build an object file
+src/Layer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.o
+.PHONY : src/Layer.cc.o
+
+src/Layer.i: src/Layer.cc.i
+
+.PHONY : src/Layer.i
+
+# target to preprocess a source file
+src/Layer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.i
+.PHONY : src/Layer.cc.i
+
+src/Layer.s: src/Layer.cc.s
+
+.PHONY : src/Layer.s
+
+# target to generate assembly for a file
+src/Layer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Layer.cc.s
+.PHONY : src/Layer.cc.s
+
+src/NeuralNetwork.o: src/NeuralNetwork.cc.o
+
+.PHONY : src/NeuralNetwork.o
+
+# target to build an object file
+src/NeuralNetwork.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/NeuralNetwork.cc.o
+.PHONY : src/NeuralNetwork.cc.o
+
+src/NeuralNetwork.i: src/NeuralNetwork.cc.i
+
+.PHONY : src/NeuralNetwork.i
+
+# target to preprocess a source file
+src/NeuralNetwork.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/NeuralNetwork.cc.i
+.PHONY : src/NeuralNetwork.cc.i
+
+src/NeuralNetwork.s: src/NeuralNetwork.cc.s
+
+.PHONY : src/NeuralNetwork.s
+
+# target to generate assembly for a file
+src/NeuralNetwork.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/NeuralNetwork.cc.s
+.PHONY : src/NeuralNetwork.cc.s
+
+src/Neuron.o: src/Neuron.cc.o
+
+.PHONY : src/Neuron.o
+
+# target to build an object file
+src/Neuron.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Neuron.cc.o
+.PHONY : src/Neuron.cc.o
+
+src/Neuron.i: src/Neuron.cc.i
+
+.PHONY : src/Neuron.i
+
+# target to preprocess a source file
+src/Neuron.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Neuron.cc.i
+.PHONY : src/Neuron.cc.i
+
+src/Neuron.s: src/Neuron.cc.s
+
+.PHONY : src/Neuron.s
+
+# target to generate assembly for a file
+src/Neuron.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/Neuron.cc.s
+.PHONY : src/Neuron.cc.s
+
 src/main.o: src/main.cc.o
 
 .PHONY : src/main.o
@@ -205,6 +286,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cann"
+	@echo "... src/Layer.o"
+	@echo "... src/Layer.i"
+	@echo "... src/Layer.s"
+	@echo "... src/NeuralNetwork.o"
+	@echo "... src/NeuralNetwork.i"
+	@echo "... src/NeuralNetwork.s"
+	@echo "... src/Neuron.o"
+	@echo "... src/Neuron.i"
+	@echo "... src/Neuron.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

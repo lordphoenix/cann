@@ -9,4 +9,7 @@ add_executable(
     cann
     src/main.cc
     src/matrix.cc
+    src/Neuron.cc
+    src/Layer.cc
+    src/NeuralNetwork.cc
 )

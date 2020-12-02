@@ -23,6 +23,28 @@ Matrix::Matrix(int numRows, int numCols, bool isRandom){
     }
 }
 
+Matrix* Matrix::transpose(){
+    Matrix* m = new Matrix(this->numRows,this->numCols,false);
+
+    for(int i=0;i<this->numRows;i++){
+        for(int j=0;j<this->numCols;j++){
+            m->setValue(j,i,this->getValue(i,j));
+        }
+    }
+    return m;
+}
+
+Matrix* Matrix::copy(){
+    Matrix* m = new Matrix(this->numRows,this->numCols,false);
+
+    for(int i=0;i<this->numRows;i++){
+        for(int j=0;j<this->numCols;j++){
+            m->setValue(i,j,this->getValue(i,j));
+        }
+    }
+    return m;
+}
+
 void Matrix::printToConsole(){
     for(int i=0;i<this->numRows;i++){
         for(int j=0;j<this->numCols;j++){
