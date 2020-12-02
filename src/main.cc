@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
-#include "../include/matrix.hpp"
-#include "../include/Neuron.hpp"
-#include "../include/NeuralNetwork.hpp"
+#include "../include/matrix.hh"
+#include "../include/Neuron.hh"
+#include "../include/NeuralNetwork.hh"
 
 using namespace std;
 

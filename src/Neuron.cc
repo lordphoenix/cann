@@ -1,4 +1,4 @@
-#include "../include/Neuron.hpp"
+#include "../include/Neuron.hh"
 
 void Neuron::setVal(double val) {
     this->val = val;
@@ -18,6 +18,3 @@ void Neuron::derive() {
 Neuron::Neuron(double val) {
     this->setVal(val); 
 }
-
-
-

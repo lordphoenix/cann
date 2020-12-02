@@ -277,6 +277,60 @@ src/matrix.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/matrix.cc.s
 .PHONY : src/matrix.cc.s
 
+src/utils/MatrixToVector.o: src/utils/MatrixToVector.cc.o
+
+.PHONY : src/utils/MatrixToVector.o
+
+# target to build an object file
+src/utils/MatrixToVector.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/utils/MatrixToVector.cc.o
+.PHONY : src/utils/MatrixToVector.cc.o
+
+src/utils/MatrixToVector.i: src/utils/MatrixToVector.cc.i
+
+.PHONY : src/utils/MatrixToVector.i
+
+# target to preprocess a source file
+src/utils/MatrixToVector.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/utils/MatrixToVector.cc.i
+.PHONY : src/utils/MatrixToVector.cc.i
+
+src/utils/MatrixToVector.s: src/utils/MatrixToVector.cc.s
+
+.PHONY : src/utils/MatrixToVector.s
+
+# target to generate assembly for a file
+src/utils/MatrixToVector.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/utils/MatrixToVector.cc.s
+.PHONY : src/utils/MatrixToVector.cc.s
+
+src/utils/MultiplyMatrix.o: src/utils/MultiplyMatrix.cc.o
+
+.PHONY : src/utils/MultiplyMatrix.o
+
+# target to build an object file
+src/utils/MultiplyMatrix.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/utils/MultiplyMatrix.cc.o
+.PHONY : src/utils/MultiplyMatrix.cc.o
+
+src/utils/MultiplyMatrix.i: src/utils/MultiplyMatrix.cc.i
+
+.PHONY : src/utils/MultiplyMatrix.i
+
+# target to preprocess a source file
+src/utils/MultiplyMatrix.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/utils/MultiplyMatrix.cc.i
+.PHONY : src/utils/MultiplyMatrix.cc.i
+
+src/utils/MultiplyMatrix.s: src/utils/MultiplyMatrix.cc.s
+
+.PHONY : src/utils/MultiplyMatrix.s
+
+# target to generate assembly for a file
+src/utils/MultiplyMatrix.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cann.dir/build.make CMakeFiles/cann.dir/src/utils/MultiplyMatrix.cc.s
+.PHONY : src/utils/MultiplyMatrix.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -301,6 +355,12 @@ help:
 	@echo "... src/matrix.o"
 	@echo "... src/matrix.i"
 	@echo "... src/matrix.s"
+	@echo "... src/utils/MatrixToVector.o"
+	@echo "... src/utils/MatrixToVector.i"
+	@echo "... src/utils/MatrixToVector.s"
+	@echo "... src/utils/MultiplyMatrix.o"
+	@echo "... src/utils/MultiplyMatrix.i"
+	@echo "... src/utils/MultiplyMatrix.s"
 .PHONY : help
 
 

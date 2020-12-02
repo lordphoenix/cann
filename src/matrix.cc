@@ -1,4 +1,4 @@
-#include "../include/matrix.hpp"
+#include "../include/matrix.hh"
 using namespace std;
 
 double Matrix::generateRandomNumber(){

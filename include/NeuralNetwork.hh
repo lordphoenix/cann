@@ -2,8 +2,8 @@
 #define _NEURAL_NETWORK_HPP_
 
 #include <bits/stdc++.h>
-#include "matrix.hpp"
-#include "Layer.hpp"
+#include "matrix.hh"
+#include "Layer.hh"
 
 using namespace std;
 

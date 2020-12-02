@@ -1,5 +1,5 @@
-#include "../include/NeuralNetwork.hpp"
-#include "../include/matrix.hpp"
+#include "../include/NeuralNetwork.hh"
+#include "../include/matrix.hh"
 
 void NeuralNetwork::setCurrentInput(vector<double> input){
     this->currentInput = input;
