@@ -4,7 +4,7 @@ using namespace std;
 double Matrix::generateRandomNumber(){
     random_device rd;
     mt19937 gen(rd());
-    uniform_real_distribution<> dis(0, .0001);
+    uniform_real_distribution<> dis(-0.0001, 0.0001);
 
     return dis(gen);
 }

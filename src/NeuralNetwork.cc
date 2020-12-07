@@ -2,6 +2,28 @@
 #include "../include/matrix.hh"
 #include "../include/utils/MultiplyMatrix.hh"
 
+void NeuralNetwork::setErrors(){
+    if(this->target.size()==0){
+        cerr << "No Target found for this Neural Network"<<endl;
+        assert(false);
+    }
+
+    if(this->target.size()!=this->layers.at(this->layers.size()-1)->getNeurons().size()){
+        cerr << "Target size is not the same as output size:" << this->layers.at(this->layers.size()-1)->getNeurons().size()<<endl;
+        assert(false);
+    }
+
+    this->error = 0.0;
+    vector<Neuron *> outputNeurons = this->layers.at(this->layers.size()-1)->getNeurons();
+
+    for(int i=0;i<target.size();i++){
+        double tempError = (outputNeurons.at(i)->getActivatedVal()) - target.at(i);
+        this->errors.push_back(tempError);
+        this->error+=tempError;
+    }
+    this->historicalErrors.push_back(this->error);
+}
+
 NeuralNetwork::NeuralNetwork(vector<int> topology){
     this->topology = topology;
     this->topologySize = topology.size();
