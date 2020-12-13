@@ -26,5 +26,7 @@ int main()
     nn->printToConsole();
 
     cout<<endl<<"Total Error for this Neural Network is : "<<nn->getTotalError()<<endl;
+
+    nn->backPropagation();
     return 0;
 }

@@ -24,7 +24,7 @@ Matrix::Matrix(int numRows, int numCols, bool isRandom){
 }
 
 Matrix* Matrix::transpose(){
-    Matrix* m = new Matrix(this->numRows,this->numCols,false);
+    Matrix* m = new Matrix(this->numCols,this->numRows,false);
 
     for(int i=0;i<this->numRows;i++){
         for(int j=0;j<this->numCols;j++){

@@ -13,6 +13,7 @@ class NeuralNetwork{
         void setCurrentInput(vector<double> input);
         void printToConsole();
         void feedForward();
+        void backPropagation();
         void setErrors();
 
         Matrix *getNeuronMatrix(int index){ return this->layers.at(index)->matrixifyVals(); };
@@ -30,6 +31,7 @@ class NeuralNetwork{
         vector<int> topology;
         vector<Layer *> layers;
         vector<Matrix *> weightMatrices;
+        vector<Matrix *> gradientMatrices;
         vector<double> currentInput;
         vector<double> target;
         double error;
