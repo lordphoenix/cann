@@ -24,14 +24,10 @@ int main()
 
     auto start = high_resolution_clock::now();
     nn->feedForward();
-        nn->setErrors();
-        nn->backPropagation();
+    nn->setErrors();
     cout<<endl<<"Total Error for this Neural Network is : "<<nn->getTotalError()<<endl;
     ofstream errorsOP("output.txt");
     for(int i=0;i<10000;i++){
-        auto nowTime = high_resolution_clock::now();
-        auto durationNowTime = duration_cast<microseconds>(nowTime - start);
-        long long time =  durationNowTime.count();
         errorsOP<<i<<" "<<(abs(nn->getTotalError()))<<endl;
         nn->feedForward();
         nn->setErrors();
