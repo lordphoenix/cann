@@ -1,10 +1,10 @@
-#include "../include/matrix.hpp"
+#include "../include/matrix.hh"
 using namespace std;
 
 double Matrix::generateRandomNumber(){
     random_device rd;
     mt19937 gen(rd());
-    uniform_real_distribution<> dis(-.0001, .0001);
+    uniform_real_distribution<> dis(0.2, 1);
 
     return dis(gen);
 }
@@ -24,7 +24,7 @@ Matrix::Matrix(int numRows, int numCols, bool isRandom){
 }
 
 Matrix* Matrix::transpose(){
-    Matrix* m = new Matrix(this->numRows,this->numCols,false);
+    Matrix* m = new Matrix(this->numCols,this->numRows,false);
 
     for(int i=0;i<this->numRows;i++){
         for(int j=0;j<this->numCols;j++){

@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
-#include "../include/matrix.hpp"
-#include "../include/Neuron.hpp"
-#include "../include/NeuralNetwork.hpp"
+#include "../include/matrix.hh"
+#include "../include/Neuron.hh"
+#include "../include/NeuralNetwork.hh"
 
 using namespace std;
+using namespace std::chrono; 
 
 int main()
 {
@@ -19,7 +20,27 @@ int main()
 
     NeuralNetwork *nn = new NeuralNetwork(topology);
     nn->setCurrentInput(input);
+    nn->setCurrentTarget(input);
 
-    nn->printToConsole();
+    auto start = high_resolution_clock::now();
+    nn->feedForward();
+    nn->setErrors();
+    cout<<endl<<"Total Error for this Neural Network is : "<<nn->getTotalError()<<endl;
+    ofstream errorsOP("output.txt");
+    for(int i=0;i<10000;i++){
+        errorsOP<<i<<" "<<(abs(nn->getTotalError()))<<endl;
+        nn->feedForward();
+        nn->setErrors();
+        nn->backPropagation();
+    }
+
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    long long time =  duration.count();
+    double timeInSeconds = time/double(1000000);
+    cout << "Time taken by function: "
+        << timeInSeconds << " seconds" << endl; 
+    cout<<endl<<"Total Error for this Neural Network is : "<<nn->getTotalError()<<endl;
+
     return 0;
 }

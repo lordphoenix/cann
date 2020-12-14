@@ -12,4 +12,6 @@ add_executable(
     src/Neuron.cc
     src/Layer.cc
     src/NeuralNetwork.cc
+    src/utils/MultiplyMatrix.cc
+    src/utils/MatrixToVector.cc
 )

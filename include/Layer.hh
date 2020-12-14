@@ -2,8 +2,8 @@
 #define _LAYER_HPP_
 
 #include <bits/stdc++.h>
-#include "matrix.hpp"
-#include "Neuron.hpp"
+#include "matrix.hh"
+#include "Neuron.hh"
 
 using namespace std;
 

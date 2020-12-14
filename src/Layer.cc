@@ -1,4 +1,4 @@
-#include "../include/Layer.hpp"
+#include "../include/Layer.hh"
 
 Layer::Layer(int size){
     this->size = size;

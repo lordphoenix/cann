@@ -11,6 +11,10 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+cann
+settings.json
+output.txt
+
 # Prerequisites
 *.d
 
