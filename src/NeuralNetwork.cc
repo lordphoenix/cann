@@ -9,15 +9,14 @@ void NeuralNetwork::backPropagation(){
     int outputLayerIndex = this->layers.size()-1;
     Matrix* derivedValuesYtoZ = this->layers.at(outputLayerIndex)->matrixifyDerivedVals();
     Matrix* gradientsYToZ = new Matrix(1,this->layers.at(outputLayerIndex)->getNeurons().size(),false);
-    
+    //cout<<"HELLO1 "<<errors.size()<<endl;
     for(int i=0;i<this->errors.size();i++){
         double d = derivedValuesYtoZ->getValue(0,i);    
         double e = this->errors.at(i);
         double g = d * e;
         gradientsYToZ->setValue(0,i,g);
-
     }
-    
+    //cout<<"HELLO2"<<endl;
     int lastHiddenLayerIndex = outputLayerIndex - 1;
     Layer *lastHiddenLayer = this->layers.at(lastHiddenLayerIndex);
     
@@ -37,14 +36,14 @@ void NeuralNetwork::backPropagation(){
         }
     }
     newWeights.push_back(newWeightsOutputToHidden);
-    
+    //cout<<"HELLO3"<<endl;
     gradient = new Matrix(gradientsYToZ->getNumRows(),gradientsYToZ->getNumCols(),false);
     for(int r=0;r<gradientsYToZ->getNumRows();r++){
         for(int c=0;c<gradientsYToZ->getNumCols();c++){
             gradient->setValue(r,c,gradientsYToZ->getValue(r,c));
         }
     }
-    
+    //cout<<"HELLO4"<<endl;
     for(int i = (outputLayerIndex-1);i>0;i--){
         Layer *l = this->layers.at(i);
         Matrix *derivedHidden = l->matrixifyDerivedVals();
@@ -60,12 +59,12 @@ void NeuralNetwork::backPropagation(){
         for(int r=0;r<weightMatrix->getNumRows();r++){
             double sum = 0;
             for(int c=0;c<weightMatrix->getNumCols();c++){
-                sum += gradient->getValue(0,r) * weightMatrix->getValue(r,c);
+                sum += gradient->getValue(0,c) * weightMatrix->getValue(r,c);
             }
             double g = sum * activatedHidden->getValue(0,r);
             derivedGradients->setValue(0,r,g);
         }
-        
+        //cout<<"HELLO5"<<endl;
         Matrix *leftNeurons = (i-1)==0 ? this->layers.at(0)->matrixifyVals() :this->layers.at(i-1)->matrixifyActivatedVals();
         Matrix *deltaWeights = (new utils::MultiplyMatrix(derivedGradients->transpose(),leftNeurons))->execute()->transpose();
         Matrix *newWeight = new Matrix(
@@ -80,17 +79,21 @@ void NeuralNetwork::backPropagation(){
                 newWeight->setValue(r,c,nn);
             }
         }
-        newWeights.push_back(newWeight);
+        //cout<<"HELLO6"<<endl;
         gradient = new Matrix(derivedGradients->getNumRows(),derivedGradients->getNumCols(),false);
         for(int r=0;r<derivedGradients->getNumRows();r++){
             for(int c=0;c<derivedGradients->getNumCols();c++){
                 gradient->setValue(r,c,derivedGradients->getValue(r,c));
             }
         }
+        newWeights.push_back(newWeight);
     }
+    reverse(newWeights.begin(),newWeights.end());
+    this->weightMatrices = newWeights;
 }
 
 void NeuralNetwork::setErrors(){
+    this->errors.clear();
     if(this->target.size()==0){
         cerr << "No Target found for this Neural Network"<<endl;
         assert(false);
@@ -105,6 +108,7 @@ void NeuralNetwork::setErrors(){
     vector<Neuron *> outputNeurons = this->layers.at(this->layers.size()-1)->getNeurons();
 
     for(int i=0;i<target.size();i++){
+        //cout<<outputNeurons.at(i)->getActivatedVal()<<" "<<target.at(i)<<endl;
         double tempError = (outputNeurons.at(i)->getActivatedVal()) - target.at(i);
         this->errors.push_back(tempError);
         this->error+=tempError;
