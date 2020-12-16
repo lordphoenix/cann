@@ -111,8 +111,9 @@ void NeuralNetwork::setErrors(){
         //cout<<outputNeurons.at(i)->getActivatedVal()<<" "<<target.at(i)<<endl;
         double tempError = (outputNeurons.at(i)->getActivatedVal()) - target.at(i);
         this->errors.push_back(tempError);
-        this->error+=tempError;
+        this->error+=pow(tempError,2);
     }
+    this->error = 0.5 * this->error;
     this->historicalErrors.push_back(this->error);
 }
 

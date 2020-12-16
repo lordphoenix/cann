@@ -25,9 +25,10 @@ int main()
     auto start = high_resolution_clock::now();
     nn->feedForward();
     nn->setErrors();
+    nn->backPropagation();
     cout<<endl<<"Total Error for this Neural Network is : "<<nn->getTotalError()<<endl;
     ofstream errorsOP("output.txt");
-    for(int i=0;i<10000;i++){
+    for(int i=0;i<2000;i++){
         errorsOP<<i<<" "<<(abs(nn->getTotalError()))<<endl;
         nn->feedForward();
         nn->setErrors();
