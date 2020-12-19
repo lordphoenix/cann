@@ -3,7 +3,7 @@
 #include "../include/utils/MultiplyMatrix.hh"
 
 void NeuralNetwork::backPropagation(){
-    vector<Matrix *> newWeights;
+    vector<Matrix *> newWeights
     Matrix *gradient;
     //moving from output to hidden
     int outputLayerIndex = this->layers.size()-1;
