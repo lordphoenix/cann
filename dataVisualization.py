@@ -9,7 +9,7 @@ for x in f:
     error.append(float(xx[1]))
 
 plt.plot(time,error)
-plt.xlabel('time')
+plt.xlabel('epoch')
 plt.ylabel('error')
 
 plt.show()

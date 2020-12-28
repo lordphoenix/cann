@@ -24,6 +24,7 @@ class NeuralNetwork{
         void setNeuronValue(int indexLayer, int indexNeuron, double val){ this->layers.at(indexLayer)->setVal(indexNeuron,val); };
 
         double getTotalError() {return this->error;};
+        vector<double> getHistoricalError() {return this->historicalErrors; };
         vector<double> getError() { return this->errors; };
         void setCurrentTarget(vector<double> currTarget){this->target = currTarget;};
     private:
