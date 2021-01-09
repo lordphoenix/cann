@@ -40,6 +40,7 @@ NeuralNetwork::NeuralNetwork(vector<int> topology, int hiddenActivationType, int
 
     for(int i=0; i < topology.at(topologySize - 1) ;i++){
         errors.push_back(0.00);
+        derivedErrors.push_back(0.00);
     }
 
     this->error = 0.00;
@@ -76,6 +77,7 @@ NeuralNetwork::NeuralNetwork(vector<int> topology, double bias,
 
     for(int i=0; i < topology.at(topologySize - 1) ;i++){
         errors.push_back(0.00);
+        derivedErrors.push_back(0.00);
     }
 
     this->error = 0.00;
