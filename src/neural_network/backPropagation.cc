@@ -70,13 +70,11 @@ void NeuralNetwork::backPropagation(){
     */
 
     for(int i=indexOutputLayer-1 ;i > 0; i--){
-        deltaWeights = new Matrix(this->topology.at(i-1),
-                                this->topology.at(i),false);
-
+        
         pGradients = new Matrix(*gradients);
 
         delete gradients;
-        gradients = new Matrix(1, this->topology.at(i), false);
+        gradients = new Matrix(pGradients->getNumRows(), transposedPWeights->getNumCols(), false);
 
         transposedPWeights = this->weightMatrices.at(i)->transpose();
 
@@ -97,10 +95,12 @@ void NeuralNetwork::backPropagation(){
 
         transposedHidden = zActivatedValues->transpose();
 
+        deltaWeights = new Matrix(transposedHidden->getNumRows(),
+                                gradients->getNumCols(),false);
         ::utils::Math::multiplyMatrix(transposedHidden, gradients, deltaWeights);
 
         //update weights
-        tempNewWeights = new Matrix(this->topology.at(i-1),this->topology.at(i),false);
+        tempNewWeights = new Matrix(deltaWeights->getNumRows(), deltaWeights->getNumCols(), false);
 
         for(int r=0; r < tempNewWeights->getNumRows(); r++){
             for(int c=0; c < tempNewWeights->getNumCols(); c++){

@@ -34,8 +34,15 @@ int main(int argc, char **argv){
 
     NeuralNetwork *n = new NeuralNetwork(topology, bias, learningRate, momentum);
     
-    for(int i=0; i < 1; i++){
+    ofstream errorsOP("output.txt");
+    vector<double> histErrors;
+    for(int i=0; i < 1000; i++){
         n->train(input, target, bias, learningRate, momentum);
+        histErrors.push_back(n->error);
+    }
+
+    for(int i=0;i<histErrors.size();i++){
+        errorsOP<<i<<" "<<histErrors.at(i)<<endl;
     }
 
     return 0;
