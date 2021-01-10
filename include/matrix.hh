@@ -1,29 +1,32 @@
 #ifndef _MATRIX_HPP_
 #define _MATRIX_HPP_
 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <random>
+#include <iomanip>
+
 using namespace std;
 
 class Matrix{
     public:
-        Matrix(int r, int c, bool isRandom);
+        Matrix(int numRows, int numCols, bool isRandom);
+
         Matrix *transpose();
         Matrix *copy();
-
-        void setValue(int r, int c, double v) {this->data.at(r).at(c) = v;}
-        double getValue(int r, int c){ return this->data.at(r).at(c); }
-
-        vector<vector<double> > getDatas(){return this->data;}
-
+        void setValue(int r, int c, double val){ this->values.at(r).at(c) = val; };
+        double getValue(int r, int c) { return this->values.at(r).at(c); };
         void printToConsole();
+        int getNumRows() {return this->numRows; };
+        int getNumCols() {return this->numCols; };
 
-        int getNumRows() { return this->numRows;}
-        int getNumCols() { return this->numCols;}
-    
-        private:
-        int numRows,numCols;
+    private:
         double generateRandomNumber();
-        vector<vector<double> > data;
+        
+        int numRows;
+        int numCols;
+
+        vector<vector<double > > values;
 };
 
 #endif

@@ -1,7 +1,12 @@
 #ifndef _NEURON_HPP_
 #define _NEURON_HPP_
 
-#include<bits/stdc++.h>
+#define TANH 1
+#define RELU 2
+#define SIGM 3
+
+#include <iostream>
+#include <math.h>
 using namespace std;
 
 class Neuron{
@@ -10,21 +15,21 @@ class Neuron{
         Neuron(double val, int activationType);
 
         void setVal(double v);
-
         void activate();
-
         void derive();
 
-  // Getter
-        double getVal() { return this->val; }
-        double getActivatedVal() { return this->activatedVal; }
-        double getDerivedVal() { return this->derivedVal; }
+        //Getter
+        double getVal() {return this->val;};
+        double getActivatedVal() {return this->activatedVal;};
+        double getDerivedVal() {return this->derivedVal;};
+
     private:
         double val;
+
         double activatedVal;
         double derivedVal;
 
-        //int activationType = 3;
+        int activationType = 3;
 };
 
 #endif

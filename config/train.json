@@ -1,0 +1,9 @@
+{
+    "topology" : [3, 2, 2],
+    "epoch" : 2000,
+    "trainingData" : "/Users/rajmishra/Documents/cpp/cann/data/sample_data.csv",
+    "labelData" : "/Users/rajmishra/Documents/cpp/cann/data/sample_labels.csv",
+    "learningRate" : 0.05,
+    "momentum" : 1.0,
+    "bias" : 1.0
+}

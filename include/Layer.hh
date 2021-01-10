@@ -1,17 +1,16 @@
 #ifndef _LAYER_HPP_
 #define _LAYER_HPP_
 
-#include <bits/stdc++.h>
-#include "matrix.hh"
+#include <iostream>
 #include "Neuron.hh"
-
-using namespace std;
+#include "Matrix.hh"
 
 class Layer{
     public:
         Layer(int size);
         Layer(int size, int activationType);
         void setVal(int i, double v);
+
         Matrix *matrixifyVals();
         Matrix *matrixifyActivatedVals();
         Matrix *matrixifyDerivedVals();
@@ -19,11 +18,10 @@ class Layer{
         vector<double> getActivatedVals();
 
         vector<Neuron *> getNeurons() { return this->neurons; };
-        void setNeuron(vector<Neuron *> neurons) { this->neurons = neurons; }
+        void setNeuron(vector<Neuron *> neurons) { this->neurons = neurons ;};
     private:
         int size;
         vector<Neuron *> neurons;
-        
 };
 
 #endif
