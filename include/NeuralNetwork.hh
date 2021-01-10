@@ -8,6 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <time.h>
+#include <cassert>
 #include "Layer.hh"
 #include "Matrix.hh"
 
