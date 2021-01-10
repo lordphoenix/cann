@@ -12,6 +12,7 @@ CTestTestfile.cmake
 _deps
 
 cann
+train
 settings.json
 output.txt
 .DS_Store

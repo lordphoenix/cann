@@ -13,7 +13,6 @@ void NeuralNetwork::backPropagation(){
     Matrix *transposedPWeights;
     Matrix *hiddenDerived;
     Matrix *transposedHidden;
-
     /*
     *  PART 1 : OUTPUT TO LAST HIDDEN LAYER
     */
@@ -30,7 +29,6 @@ void NeuralNetwork::backPropagation(){
         gradients->setValue(0,i,g);
     }
     
-
     //G.Transpose * Z
     gradientsTransposed = gradients->transpose();
     zActivatedValues = this->layers.at(indexOutputLayer-1)->matrixifyActivatedVals();
@@ -56,7 +54,6 @@ void NeuralNetwork::backPropagation(){
             tempNewWeights->setValue(r, c, (originalWeightValue - deltaValue));
         }
     }
-
     newWeights.push_back((new Matrix(*tempNewWeights)));
 
     delete tempNewWeights;
@@ -72,21 +69,22 @@ void NeuralNetwork::backPropagation(){
     for(int i=indexOutputLayer-1 ;i > 0; i--){
         
         pGradients = new Matrix(*gradients);
-
         delete gradients;
-        gradients = new Matrix(pGradients->getNumRows(), transposedPWeights->getNumCols(), false);
-
+        transposedPWeights = this->weightMatrices.at(i)->transpose();
+        
+        
+        Matrix *gradientsR = new Matrix(pGradients->getNumRows(), transposedPWeights->getNumCols(), false);
         transposedPWeights = this->weightMatrices.at(i)->transpose();
 
         hiddenDerived = this->layers.at(i)->matrixifyDerivedVals();
-
-        ::utils::Math::multiplyMatrix(pGradients, transposedPWeights, gradients);
+        
+        ::utils::Math::multiplyMatrix(pGradients, transposedPWeights, gradientsR);
 
         for(int counter = 0; counter < hiddenDerived->getNumCols(); counter++){
-            double g = gradients->getValue(0, counter) * hiddenDerived->getValue(0,counter);
-            gradients->setValue(0, counter, g);
+            double g = gradientsR->getValue(0, counter) * hiddenDerived->getValue(0,counter);
+            gradientsR->setValue(0, counter, g);
         }
-
+        
         if(i == 1){
             zActivatedValues = this->layers.at(0)->matrixifyVals();
         }else{
@@ -96,8 +94,8 @@ void NeuralNetwork::backPropagation(){
         transposedHidden = zActivatedValues->transpose();
 
         deltaWeights = new Matrix(transposedHidden->getNumRows(),
-                                gradients->getNumCols(),false);
-        ::utils::Math::multiplyMatrix(transposedHidden, gradients, deltaWeights);
+                                gradientsR->getNumCols(),false);
+        ::utils::Math::multiplyMatrix(transposedHidden, gradientsR, deltaWeights);
 
         //update weights
         tempNewWeights = new Matrix(deltaWeights->getNumRows(), deltaWeights->getNumCols(), false);
@@ -113,7 +111,6 @@ void NeuralNetwork::backPropagation(){
                 tempNewWeights->setValue(r, c, (originalWeightValue - deltaValue));
             }
         }
-
         newWeights.push_back((new Matrix(*tempNewWeights)));
 
         delete pGradients;
@@ -128,7 +125,6 @@ void NeuralNetwork::backPropagation(){
     for(int i=0; i < this->weightMatrices.size(); i++){
         delete this->weightMatrices.at(i);
     }
-
     weightMatrices.clear();
 
     std::reverse(newWeights.begin(),newWeights.end());

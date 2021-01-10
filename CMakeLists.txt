@@ -5,8 +5,8 @@ set(CMAKE_BUILD_TYPE debug)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -std=c++14")
 
 add_executable(
-    cann
-    src/main.cc
+    train
+    src/trainer.cc
     src/Neuron.cc
     src/Matrix.cc
     src/Layer.cc
@@ -16,4 +16,5 @@ add_executable(
     src/neural_network/backPropagation.cc
     src/neural_network/setErrors.cc
     src/neural_network/train.cc
+    src/utils/Misc.cc
 )
