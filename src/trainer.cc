@@ -37,6 +37,7 @@ int main(int argc, char **argv){
     int epoch = config["epoch"];
     string trainingFile = config["trainingData"];
     string labelsFile   = config["labelData"];
+    string weightsFile = config["weights"];
 
     vector<int> topology = config["topology"];
 
@@ -58,6 +59,8 @@ int main(int argc, char **argv){
     for(int i=0;i<histErrors.size();i++){
         errorsOP<<i<<" "<<histErrors.at(i)<<endl;
     }
+
+    n->saveWeights(weightsFile);
 
     return 0;
 }

@@ -20,6 +20,18 @@ class Matrix{
         int getNumRows() {return this->numRows; };
         int getNumCols() {return this->numCols; };
 
+        vector<vector<double> > getValues(){
+            vector<vector<double> > values;
+            for(int i=0; i < this->numRows; i++){
+                vector<double> temp;
+                for(int j=0; j < this->numCols; j++){
+                    temp.push_back(this->getValue(i,j));
+                }
+                values.push_back(temp);
+            }
+            return values;
+        };
+
     private:
         double generateRandomNumber();
         

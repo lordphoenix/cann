@@ -5,14 +5,17 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <vector>
 #include <algorithm>
 #include <time.h>
 #include <cassert>
 #include "Layer.hh"
 #include "Matrix.hh"
+#include "json.hpp"
 
 using namespace std;
+using json = nlohmann::json;
 
 class NeuralNetwork{
     public:
@@ -36,6 +39,8 @@ class NeuralNetwork{
         Matrix *getWeightMatrix(int index) { return new Matrix(*this->weightMatrices.at(index)); };
 
         void setNeuronValue(int indexLayer, int indexNeuron, double val) { this->layers.at(indexLayer)->setVal(indexNeuron, val); };
+
+        void saveWeights(string file);
 
         int topologySize;
         int hiddenActivationType = RELU;
