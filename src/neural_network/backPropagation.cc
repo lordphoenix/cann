@@ -98,7 +98,7 @@ void NeuralNetwork::backPropagation(){
         ::utils::Math::multiplyMatrix(transposedHidden, gradientsR, deltaWeights);
 
         //update weights
-        tempNewWeights = new Matrix(deltaWeights->getNumRows(), deltaWeights->getNumCols(), false);
+        tempNewWeights = new Matrix(this->weightMatrices.at(i-1)->getNumRows(), this->weightMatrices.at(i-1)->getNumCols(), false);
 
         for(int r=0; r < tempNewWeights->getNumRows(); r++){
             for(int c=0; c < tempNewWeights->getNumCols(); c++){
